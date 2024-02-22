@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Palette Generator</title>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to Color Palette Generator</h1>
+      <p>Upload your image here and get your palette of 10 colors!</p>
+    </header>
+    <main>
+      <form action="/" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required />
+        <button type="submit">Generate</button>
+      </form>
+    </main>
+  </body>
+</html>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  header {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+</style>
