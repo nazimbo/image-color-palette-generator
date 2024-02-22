@@ -16,8 +16,56 @@
       <button type="submit">Generate</button>
     </form>
 
-    <div class="result"></div>
+    {% if colors %}
+    <div class="result">
+      {% for color in colors %}
+      <div class="color" style="background-color: {{ color }};"></div>
+      {% endfor %}
+    </div>
+    {% endif %}
   </body>
 </html>
 
-<style></style>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  header {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .result {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  .color {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+  }
+</style>

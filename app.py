@@ -15,11 +15,13 @@ def home():
 
         colors, count = np.unique(reshaped, axis=0, return_counts=True)
 
-        indices = np.argsort(-count)
+        indices = np.argsort(count)
 
         top_colors = colors[indices[:10]]
+        top_colors_hex = ['#{:02x}{:02x}{:02x}'.format(
+            *rgb) for rgb in top_colors]
 
-        return render_template('index.html', top_colors=top_colors)
+        return render_template('index.html', colors=top_colors_hex)
 
     return render_template('index.html')
 
