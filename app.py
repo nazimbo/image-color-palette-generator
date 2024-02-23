@@ -11,13 +11,17 @@ def home():
         file = request.files["file"]
         image = Image.open(file.stream)
         matrix = np.array(image)
+        print(matrix.shape)
         reshaped = matrix.reshape(-1, matrix.shape[-1])
+        print(reshaped.shape)
 
         colors, count = np.unique(reshaped, axis=0, return_counts=True)
 
-        indices = np.argsort(count)
+        indices = np.argsort(-count)
 
-        top_colors = colors[indices[:10]]
+        palette_color_count = request.form.get('color-count')
+
+        top_colors = colors[indices[:int(palette_color_count)]]
         top_colors_hex = ['#{:02x}{:02x}{:02x}'.format(
             *rgb) for rgb in top_colors]
 
