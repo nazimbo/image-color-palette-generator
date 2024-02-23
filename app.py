@@ -11,7 +11,7 @@ def home():
         file = request.files["file"]
         image = Image.open(file.stream)
         matrix = np.array(image)
-        reshaped = matrix.reshape(-1, 3)
+        reshaped = matrix.reshape(-1, matrix.shape[-1])
 
         colors, count = np.unique(reshaped, axis=0, return_counts=True)
 
