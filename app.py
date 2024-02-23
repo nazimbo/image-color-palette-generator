@@ -12,7 +12,7 @@ def home():
         image = Image.open(file.stream)
         matrix = np.array(image)
         print(matrix.shape)
-        reshaped = matrix.reshape(-1, matrix.shape[-1])
+        reshaped = matrix.reshape(-1, 3)
         print(reshaped.shape)
 
         colors, count = np.unique(reshaped, axis=0, return_counts=True)
