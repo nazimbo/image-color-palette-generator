@@ -11,9 +11,6 @@ def home():
         # Get the file from the request
         file = request.files["file"]
 
-        # Open the image
-        image = Image.open(file.stream)
-
         # Get the number of colors to extract
         palette_color_count = request.form.get('color-count')
 
