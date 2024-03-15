@@ -11,9 +11,14 @@ def home():
     if request.method == 'POST':
         # Get the file from the request
         file = request.files["file"]
+
         # Open the image
         image = Image.open(file.stream)
 
+        # Get the number of colors to extract
+        palette_color_count = request.form.get('color-count')
+
+        # Using numpy to get the colors
         # matrix = np.array(image)
         # print(matrix.shape)
         # reshaped = matrix.reshape(-1, 3)
@@ -23,15 +28,12 @@ def home():
 
         # indices = np.argsort(-count)
 
-        # palette_color_count = request.form.get('color-count')
-
         # top_colors = colors[indices[:int(palette_color_count)]]
         # top_colors_hex = ['#{:02x}{:02x}{:02x}'.format(
         #     *rgb) for rgb in top_colors]
 
-        number_of_colors = request.form.get('color-count')
-
-        colors = colorgram.extract(file, int(number_of_colors))
+        # Using colorgram to get the colors
+        colors = colorgram.extract(file, int(palette_color_count))
         top_colors = [color.rgb for color in colors]
         top_colors_hex = ['#{:02x}{:02x}{:02x}'.format(
             *rgb) for rgb in top_colors]
